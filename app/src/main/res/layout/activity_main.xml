@@ -19,18 +19,34 @@
         android:text="Enter the amount you want to convert:"
         />
 
+
     <EditText
-        android:id="@+id/amountId"
-        android:layout_marginTop="20dp"
+        android:id="@+id/editTextNumberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal"
         android:hint="₱ 0.00"
         />
+
     <Button
+        android:id="@+id/covertBtnId"
         android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="convert"
         />
+
+    <TextView
+        android:id="@+id/convertedAmountId"
+        android:layout_marginTop="20dp"
+        android:text=""
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+
 
 </LinearLayout>
