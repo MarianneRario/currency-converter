@@ -14,15 +14,20 @@ public class MainActivity extends AppCompatActivity {
     /* void method that will convert the entered currency */
     public void convertCurrency(View view){
         EditText amount = (EditText) findViewById(R.id.editTextNumberDecimal); // id of the editTextNumberDecimal
-        Log.i("Info", "Button pressed"); // log the info every button press to make sure that the button is working correctly
-
+        String amountInPeso = amount.getText().toString(); // gets the entered amount in EditTextView
+        double amountInDollarDouble = Double.parseDouble(amountInPeso) * 0.019; // convert php to usd
+        String amountInDollarString = Double.toString(amountInDollarDouble);
+        Log.i("Amount in Dollars", amountInDollarString); // log the info every button press to make sure that the button is working correctly
+        showAmount(view, amountInDollarString);
     }
 
-    public void showText(View view){
+
+    public void showAmount(View view, String amountInDollars){
         /* convertedAmountTextView Id */
         TextView convertedAmountTextView = (TextView) findViewById(R.id.convertedAmountId);
-        convertedAmountTextView.setText(convertedAmountTextView.getText() + " 500"); // append to the current text in the .xml
+        convertedAmountTextView.setText(convertedAmountTextView.getText() + amountInDollars); // append to the current text in the .xml; only accepts String value
         convertedAmountTextView.setVisibility(View.VISIBLE); // changed the visibility to visible
+
     }
 
     @Override
