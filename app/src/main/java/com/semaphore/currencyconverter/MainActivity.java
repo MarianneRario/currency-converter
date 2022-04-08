@@ -6,12 +6,23 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     /* void method that will convert the entered currency */
     public void convertCurrency(View view){
-        Log.i("Info", "Button xpressed");
+        EditText amount = (EditText) findViewById(R.id.editTextNumberDecimal); // id of the editTextNumberDecimal
+        Log.i("Info", "Button pressed"); // log the info every button press to make sure that the button is working correctly
+
+    }
+
+    public void showText(View view){
+        /* convertedAmountTextView Id */
+        TextView convertedAmountTextView = (TextView) findViewById(R.id.convertedAmountId);
+        convertedAmountTextView.setText(convertedAmountTextView.getText() + " 500"); // append to the current text in the .xml
+        convertedAmountTextView.setVisibility(View.VISIBLE); // changed the visibility to visible
     }
 
     @Override
@@ -19,8 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        /* id of the convert button should be called inside the onCreate method only */
+        /* button IDs should initialized inside onCreate method to function */
         Button convertBtn = (Button) findViewById(R.id.covertBtnId);
 
         /* onClick method for the convert button */
@@ -28,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // call the convertCurrency method inside the onClick method
-                convertCurrency(convertBtn);
+                convertCurrency(view);
             }
         }); // setOnClickListener only works inside onCreate method
 
