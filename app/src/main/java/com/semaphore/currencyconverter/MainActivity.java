@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         EditText amount = (EditText) findViewById(R.id.editTextNumberDecimal); // id of the editTextNumberDecimal
         String amountInPeso = amount.getText().toString(); // gets the entered amount in EditTextView
         double amountInDollarDouble = Double.parseDouble(amountInPeso) * 0.019; // convert php to usd
-        String amountInDollarString = Double.toString(amountInDollarDouble);
+        String amountInDollarString = String.format("%.2f", amountInDollarDouble);
         Log.i("Amount in Dollars", amountInDollarString); // log the info every button press to make sure that the button is working correctly
         showAmount(view, amountInDollarString);
     }
@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         convertBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 // call the convertCurrency method inside the onClick method
                 convertCurrency(view);
             }
